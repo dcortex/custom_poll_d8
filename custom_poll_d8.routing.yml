@@ -1,0 +1,15 @@
+custom_poll_d8.example:
+  path: '/custom-poll-d8/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\custom_poll_d8\Controller\CustomPollD8Controller::build'
+  requirements:
+    _permission: 'access content'
+
+custom_poll_d8.settings_form:
+  path: '/admin/config/system/custom-poll-d8'
+  defaults:
+    _title: 'Custom Poll D8 settings'
+    _form: 'Drupal\custom_poll_d8\Form\SettingsForm'
+  requirements:
+    _permission: 'administer custom_poll_d8 configuration'

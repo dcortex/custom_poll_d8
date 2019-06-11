@@ -1,0 +1,4 @@
+administer custom_poll_d8 configuration:
+  title: 'Administer custom_poll_d8 configuration'
+  description: 'Optional description.'
+  restrict access: true

@@ -1,0 +1,6 @@
+services:
+  custom_poll_d8.event_subscriber:
+    class: Drupal\custom_poll_d8\EventSubscriber\CustomPollD8Subscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: event_subscriber }

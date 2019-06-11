@@ -1,0 +1,5 @@
+name: Custom Poll D8
+type: module
+description: Custom Poll Drupal 8
+package: Custom
+core: 8.x
