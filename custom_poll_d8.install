@@ -23,7 +23,7 @@ function custom_poll_d8_uninstall() {
  * Implements hook_schema().
  */
 function custom_poll_d8_schema() {
-  $schema['custom_poll_d8_example'] = [
+  $schema['custom_poll_d8_poll'] = [
     'description' => 'Table description.',
     'fields' => [
       'id' => [
@@ -38,20 +38,40 @@ function custom_poll_d8_schema() {
         'default' => 0,
         'description' => 'The {users}.uid of the user who created the record.',
       ],
-      'status' => [
-        'description' => 'Boolean indicating whether this record is active.',
-        'type' => 'int',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-        'default' => 0,
-        'size' => 'tiny',
-      ],
-      'type' => [
-        'type' => 'varchar_ascii',
-        'length' => 64,
+      'name' => [
+        'type' => 'varchar',
+        'length' => 100,
         'not null' => TRUE,
         'default' => '',
-        'description' => 'Type of the record.',
+        'description' => 'User Name.',
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User Email.',
+      ],
+      'phone' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => 'User Phone Number.',
+      ],
+      'question1' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Poll Question 1.',
+      ],
+      'question2' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Poll Question 2.',
       ],
       'created' => [
         'type' => 'int',
@@ -59,18 +79,11 @@ function custom_poll_d8_schema() {
         'default' => 0,
         'description' => 'Timestamp when the record was created.',
       ],
-      'data' => [
-        'type' => 'blob',
-        'not null' => TRUE,
-        'size' => 'big',
-        'description' => 'The arbitrary data for the item.',
-      ],
     ],
     'primary key' => ['id'],
     'indexes' => [
-      'type' => ['type'],
+      'email' => ['email'],
       'uid' => ['uid'],
-      'status' => ['status'],
     ],
   ];
 
